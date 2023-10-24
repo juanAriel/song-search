@@ -15,12 +15,12 @@ const Search = ({ onSearch }: { onSearch: (term: string) => void }) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setSearchTerm(value);
-        onSearch(value); // Aquí utilizamos onSearch
+        onSearch(value);
     };
 
     return (
         <div>
-            <div>
+            <div style={{textAlign:'center'}}>
                 <h2>Search Song</h2>
                 <InputBase
                     style={style}

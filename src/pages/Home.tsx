@@ -11,7 +11,7 @@ const Home = () => {
     };
 
     return (
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',   }}>
             <Search onSearch={handleSearch} />
             <CardSong searchTerm={searchTerm} />
         </div>
