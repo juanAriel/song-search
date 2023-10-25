@@ -3,12 +3,10 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { useNavigate } from 'react-router-dom';
 import Track from "../../../models/track.inteface";
 
-const CardSongSearch = ({ songData }: { songData: Track[] }) => {
+const CardSongSearch = ({ songData, goSong }: { songData: Track[], goSong: any }) => {
     const values = songData;
-    const navigate = useNavigate();
     return (
       <>
         <div style={{ marginTop: "20px" }}>
@@ -18,7 +16,7 @@ const CardSongSearch = ({ songData }: { songData: Track[] }) => {
                 <Card
                   sx={{ maxWidth: 345 }}
                   onClick={() => {
-                    navigate(`/SongPageDetails/${track.id}`);
+                    goSong(track.id);
                   }}
                 >
                   <CardMedia

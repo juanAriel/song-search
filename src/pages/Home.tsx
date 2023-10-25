@@ -4,6 +4,8 @@ import Search from '../components/atoms/search';
 import CardSongSearch from '../components/atoms/cardSong';
 import Track from '../models/track.inteface';
 import { getListSong } from '../services/requetsToEndpoint';
+import { useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
     const [searchTerm, setSearchTerm] = useState<string>('');
@@ -23,11 +25,17 @@ const Home = () => {
         };
         fetchData();
     }, [searchTerm]);
-    
+
+    const navigate = useNavigate();
+
+    const goUrlSongSpotify = (songId: any) => {
+        navigate(`/SongPageDetails/${songId}`);
+    };
+
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
             <Search onSearch={handleSearch} />
-            <CardSongSearch songData={songData as unknown as Track[]} />
+            <CardSongSearch songData={songData as unknown as Track[]} goSong={goUrlSongSpotify} />
         </div>
     );
 }
