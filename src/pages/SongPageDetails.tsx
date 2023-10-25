@@ -4,8 +4,6 @@ import Song from "../models/song.interface";
 import { getSong } from "../services/requetsToEndpointSong";
 import CardSongDetails from "../components/molecules/cardSongDetails";
 
-
-
 const SongDataDetails = () => {
   const { index } = useParams();
   const [song, setSong] = useState<Song[]>([]);
@@ -23,7 +21,7 @@ const SongDataDetails = () => {
 
   return (
     <div>
-      <CardSongDetails song={song as unknown as Song[]} />
+      <CardSongDetails song={song} />
     </div>
   );
 };

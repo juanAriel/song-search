@@ -28,14 +28,14 @@ const Home = () => {
 
     const navigate = useNavigate();
 
-    const goUrlSongSpotify = (songId: any) => {
-        navigate(`/SongPageDetails/${songId}`);
+    const goUrlSongSpotify = (Id: string) => {
+        navigate(`/SongPageDetails/${Id}`);
     };
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
             <Search onSearch={handleSearch} />
-            <CardSongSearch songData={songData as unknown as Track[]} goSong={goUrlSongSpotify} />
+            <CardSongSearch tracksData={songData} onClickSong={goUrlSongSpotify} />
         </div>
     );
 }

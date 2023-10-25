@@ -9,7 +9,7 @@ const getSong = async (searchTerm?: string): Promise<Song[]> =>  {
   
     if (searchTerm) {
       try {
-        // Aquí se conecta a la API y se hace una petición al endpoint
+        //here you connect to the API and make a request to the endpoint
         const data = await SearchTrack(searchTerm, token);
           songSearch.push({
             album:data.album.name,

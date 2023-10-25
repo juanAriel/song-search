@@ -5,17 +5,17 @@ import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import Song from "../../models/song.interface";
-import convertTime from "../../utils/convertTime";
+import convertTime from "../../../utils/convertTime";
+import CardSongDetailsProps from "./interface";
 
-const CardSongDetails = ({ song }: { song: Song[] }) => {
-    const songData = song;
+
+const CardSongDetails = ({ song }: CardSongDetailsProps) => {
     return (
         <>
-            {songData &&
-                songData.map((song, index) => (
+            {song &&
+                song.map((song, index) => (
                     <div key={index}>
-                        <Card sx={{ display: "flex", margin: "auto", maxWidth: 550, background: '#db6a3d9c' }}>
+                        <Card sx={{ display: "flex", margin: "auto", maxWidth: 550, background: '#fffdfccc' }}>
                             <Box sx={{ display: "flex", flexDirection: "column" }}>
                                 <CardContent sx={{ flex: "1 0 auto", alignContent: 'center', alignItems: 'center', padding: '30px' }}>
                                     <Typography component="div" variant="h5" sx={{ fontWeight: 'bold' }}>

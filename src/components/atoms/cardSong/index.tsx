@@ -5,18 +5,17 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Track from "../../../models/track.inteface";
 
-const CardSongSearch = ({ songData, goSong }: { songData: Track[], goSong: any }) => {
-    const values = songData;
+const CardSongSearch = ({ tracksData, onClickSong }: { tracksData: Track[], onClickSong(id: string): void }) => {
     return (
       <>
         <div style={{ marginTop: "20px" }}>
-          {values.length > 0 &&
-            values.map((track, index) => (
+          {tracksData.length > 0 &&
+            tracksData.map((track, index) => (
               <div key={index}>
                 <Card
                   sx={{ maxWidth: 345 }}
                   onClick={() => {
-                    goSong(track.id);
+                    onClickSong(track.id);
                   }}
                 >
                   <CardMedia
