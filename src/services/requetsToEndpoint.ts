@@ -14,9 +14,9 @@ const getListSong = async (searchTerm?: string): Promise<Track[]> =>  {
         data.tracks.items.map((item: { id:any; name: any; album: { images: { url: any; }[]; }; artists: { name: any; }[]; }) => {
           songList.push({
             id:item.id,
-            imageSong: item.album.images[1].url,
-            nameSong: item.name,
-            nameArtist: item.artists[0].name,
+            imageUrl: item.album.images[1].url,
+            name: item.name,
+            artist: item.artists[0].name,
           });
         });
       } catch (error) {
@@ -26,7 +26,6 @@ const getListSong = async (searchTerm?: string): Promise<Track[]> =>  {
     else {
       return songList;
     }
-  
   return songList;
 };
 export { getListSong };

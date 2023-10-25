@@ -1,4 +1,4 @@
-import Home from './pages/Home';
+import Home from './pages/Home'
 import SongDataDetails from './pages/SongPageDetails';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';

@@ -1,30 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import { getListSong } from "../../services/requetsToEndpoint";
-import Track from "../../models/track.inteface";
+
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import CardSongProps from "./cardSongProps.interface";
+import { useNavigate } from 'react-router-dom';
+import Track from "../../../models/track.inteface";
 
-const CardSong = ({ searchTerm }: CardSongProps) => {
-  const navigate = useNavigate();
-  const [songData, setSongData] = useState<Track[]>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getListSong(searchTerm);
-      setSongData(data);
-    };
-    fetchData();
-  }, [searchTerm]);
-
-  const CardSongSearch = () => {
+const CardSongSearch = ({ songData }: { songData: Track[] }) => {
+    const values = songData;
+    const navigate = useNavigate();
     return (
       <>
         <div style={{ marginTop: "20px" }}>
-          {songData.length > 0 &&
-            songData.map((track, index) => (
+          {values.length > 0 &&
+            values.map((track, index) => (
               <div key={index}>
                 <Card
                   sx={{ maxWidth: 345 }}
@@ -35,15 +24,15 @@ const CardSong = ({ searchTerm }: CardSongProps) => {
                   <CardMedia
                     component="img"
                     height="300"
-                    src={track.imageSong}
-                    alt={track.nameSong}
+                    src={track.imageUrl}
+                    alt={track.name}
                   />
                   <CardContent>
                     <Typography variant="h5" color="black">
-                      {track.nameArtist}
+                      {track.artist}
                     </Typography>
                     <Typography variant="h6" color="black">
-                      {track.nameSong}
+                      {track.name}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -55,7 +44,5 @@ const CardSong = ({ searchTerm }: CardSongProps) => {
     );
   };
 
-  return <CardSongSearch />;
-};
+  export default CardSongSearch;
 
-export default CardSong;
