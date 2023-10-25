@@ -21,7 +21,7 @@ const SongDataDetails = () => {
 
   return (
     <div>
-      <CardSongDetails song={song} />
+      <CardSongDetails songs={song} />
     </div>
   );
 };

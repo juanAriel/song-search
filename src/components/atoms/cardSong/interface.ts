@@ -1,4 +1,6 @@
-interface CardSongProps {
-    searchTerm: string;
-}
-export default CardSongProps;
+import Track from "../../../models/track.inteface";
+interface CardSongSearchProps {
+    tracksData: Track[];
+    onClickSong: (id: string) => void;
+  }
+  export default CardSongSearchProps;

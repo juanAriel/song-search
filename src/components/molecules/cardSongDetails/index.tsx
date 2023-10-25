@@ -9,11 +9,11 @@ import convertTime from "../../../utils/convertTime";
 import CardSongDetailsProps from "./interface";
 
 
-const CardSongDetails = ({ song }: CardSongDetailsProps) => {
+const CardSongDetails = ({ songs }: CardSongDetailsProps) => {
     return (
         <>
-            {song &&
-                song.map((song, index) => (
+            {songs &&
+                songs.map((song, index) => (
                     <div key={index}>
                         <Card sx={{ display: "flex", margin: "auto", maxWidth: 550, background: '#fffdfccc' }}>
                             <Box sx={{ display: "flex", flexDirection: "column" }}>

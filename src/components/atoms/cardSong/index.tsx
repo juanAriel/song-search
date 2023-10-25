@@ -3,9 +3,9 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import Track from "../../../models/track.inteface";
+import CardSongSearchProps from "./interface";
 
-const CardSongSearch = ({ tracksData, onClickSong }: { tracksData: Track[], onClickSong(id: string): void }) => {
+const CardSongSearch = ({ tracksData, onClickSong }:CardSongSearchProps) => {
     return (
       <>
         <div style={{ marginTop: "20px" }}>

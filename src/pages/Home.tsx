@@ -29,7 +29,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     const goUrlSongSpotify = (Id: string) => {
-        navigate(`/SongPageDetails/${Id}`);
+        navigate(`/details/${Id}`);
     };
 
     return (
