@@ -3,22 +3,25 @@ import { useParams } from "react-router-dom";
 import Song from "../models/song.interface";
 import { getSong } from "../services/requetsToEndpointSong";
 import CardSongDetails from "../components/molecules/cardSongDetails";
+import { useGetSearchTrackQuery } from "../services/api";
 
 const SongDataDetails = () => {
   const { index } = useParams();
+  const  {data}  =  useGetSearchTrackQuery(index);
   const [song, setSong] = useState<Song[]>([]);
   useEffect(() => {
-    const dataSong = async () => {
+    const fetchSongData = async () => {
       try {
-        const data = await getSong(index);
-        setSong(data);
+        const dataSong = await getSong(data);
+        setSong(dataSong);
       } catch (error) {
         console.log(error);
       }
     };
-    dataSong();
-  }, [index]);
-
+    if (data) {
+      fetchSongData();
+    }
+  }, [data]);
   return (
     <div>
       <CardSongDetails songs={song} />

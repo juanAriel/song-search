@@ -1,16 +1,10 @@
-import { getToken } from "./generateToken";
 import Song from "../models/song.interface";
-import  SearchTrack  from "./requestSearchTrack";
 
-const getSong = async (searchTerm?: string): Promise<Song[]> =>  {
+const getSong = async (data: any): Promise<Song[]> =>  {
   const songSearch: Song[] = [];
   //we create a variable and to asigned the value of the getToken fuction
-  const token = await getToken();
-  
-    if (searchTerm) {
+    if (data) {
       try {
-        //here you connect to the API and make a request to the endpoint
-        const data = await SearchTrack(searchTerm, token);
           songSearch.push({
             album:data.album.name,
             imageUrl: data.album.images[1].url,
