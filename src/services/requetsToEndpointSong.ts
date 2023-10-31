@@ -1,18 +1,17 @@
 import Song from "../models/song.interface";
 
-const getSong = async ({ data }: any): Promise<{ [key: string]: Song }> => {
-  const songSearch: { [key: string]: Song } = {};
+const getSong = async ({ data }: any): Promise<Song> => {
+  const songSearch:  Song  = {album:'',artist: '',name: '', imageUrl: '', duration:0, songUrl:''};
   if (data) {
     try {
-      //We use data.name as key in the object and Convert to integer duration
-      songSearch[data.name] = {
-        album: data.album.name,
-        imageUrl: data.album.images[1].url,
-        name: data.name,
-        artist: data.artists[0].name,
-        duration: parseInt(data.duration_ms),
-        songUrl: data.external_urls.spotify
-      };
+      //we assign the values ​​directly
+      songSearch.album = data.album.name;
+      songSearch.imageUrl = data.album.images[1].url;
+      songSearch.name = data.name;
+      songSearch.artist = data.artists[0].name;
+      songSearch.duration = parseInt(data.duration_ms);
+      songSearch.songUrl = data.external_urls.spotify;
+      
     } catch (error) {
       console.log(error);
     }

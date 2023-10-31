@@ -8,15 +8,14 @@ import { useGetSearchTrackQuery } from "../services/api";
 const SongDataDetails = () => {
   const { index } = useParams();
   const dataSong = useGetSearchTrackQuery(index);
-  const [song, setSong] = useState<{ [key: string]: Song }>({});
+ 
+  const [song, setSong] = useState<Song>({album:'',artist: '',name: '', imageUrl: '', duration:0, songUrl:''});
+
   useEffect(() => {
-    const fetchSongData = async () => {
-      try {
-        const dataSongDetail = await getSong(dataSong);
-        setSong(dataSongDetail);
-      } catch (error) {
-        console.log(error);
-      }
+    const fetchSongData = () => {
+          getSong(dataSong).then((dataSongDetail) =>{
+          setSong(dataSongDetail);
+        })
     };
     if (dataSong) {
       fetchSongData();
@@ -24,7 +23,7 @@ const SongDataDetails = () => {
   }, [dataSong]);
   return (
     <div>
-      <CardSongDetails songDetail={Object.values(song)} />
+      <CardSongDetails songDetail={song} />
     </div>
   );
 };

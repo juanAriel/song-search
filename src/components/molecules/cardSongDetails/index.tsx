@@ -9,7 +9,7 @@ import convertTime from "../../../utils/convertTime";
 import CardSongDetailsProps from "./interface";
 
 const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
-    if (!songDetail || songDetail.length === 0) {
+    if (!songDetail) {
         return null;
     }
 
@@ -37,7 +37,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                             variant="h5"
                             sx={{ fontWeight: "bold" }}
                         >
-                            ALBUM: {songDetail[0].album}
+                            ALBUM: {songDetail.album}
                         </Typography>
                         <Typography
                             variant="h6"
@@ -45,7 +45,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                             component="div"
                             sx={{ fontWeight: "bold" }}
                         >
-                            Artista: {songDetail[0].artist}
+                            Artista: {songDetail.artist}
                         </Typography>
                         <Typography
                             variant="h6"
@@ -53,7 +53,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                             component="div"
                             sx={{ fontWeight: "bold" }}
                         >
-                            Titulo: {songDetail[0].name}
+                            Titulo: {songDetail.name}
                         </Typography>
                         <Typography
                             variant="h6"
@@ -61,7 +61,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                             component="div"
                             sx={{ fontWeight: "bold" }}
                         >
-                            Duracion: {convertTime(songDetail[0].duration)}
+                            Duracion: {convertTime(songDetail.duration)}
                         </Typography>
                     </CardContent>
                     <Box sx={{ display: "flex", margin: "auto" }}>
@@ -72,7 +72,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                                 marginBottom: "20px",
                             }}
                             onClick={() => {
-                                window.location.href = songDetail[0].songUrl;
+                                window.location.href = songDetail.songUrl;
                             }}
                         >
                             <p>Escuchar</p>
@@ -83,7 +83,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                 <CardMedia
                     component="img"
                     sx={{ width: 300 }}
-                    src={songDetail[0].imageUrl}
+                    src={songDetail.imageUrl}
                 />
             </Card>
         </div>

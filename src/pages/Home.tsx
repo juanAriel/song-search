@@ -8,7 +8,7 @@ import { useLazySearchTracksQuery } from "../services/api";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [songData, setSongData] = useState<Track[]>([]);
+  const [songsData, setSongsData] = useState<Track[]>([]);
   const [trigger, { data }] = useLazySearchTracksQuery();
   const navigate = useNavigate();
 
@@ -18,17 +18,16 @@ const Home = () => {
       trigger(nameSong);
     } else {
       setSearchTerm("");
-      setSongData([]);
+      setSongsData([]);
     }
   };
 
   useEffect(() => {
     if (data) {
       const dataSong = getListSong(data);
-      setSongData(dataSong);
+      setSongsData(dataSong);
     }
   }, [searchTerm, data]);
-
   const goUrlSongSpotify = (id: string) => {
     navigate(`/details/${id}`);
   };
@@ -36,7 +35,7 @@ const Home = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Search onSearch={handleSearch} />
-      <CardSongSearch tracksData={songData} onClickSong={goUrlSongSpotify} />
+      <CardSongSearch tracksData={songsData} onClickSong={goUrlSongSpotify} />
     </div>
   );
 };
