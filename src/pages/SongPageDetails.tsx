@@ -8,14 +8,12 @@ import { useGetSearchTrackQuery } from "../services/api";
 const SongDataDetails = () => {
   const { index } = useParams();
   const dataSong = useGetSearchTrackQuery(index);
- 
   const [song, setSong] = useState<Song>({album:'',artist: '',name: '', imageUrl: '', duration:0, songUrl:''});
 
   useEffect(() => {
     const fetchSongData = () => {
-          getSong(dataSong).then((dataSongDetail) =>{
-          setSong(dataSongDetail);
-        })
+        const dataSongDetail= getSong(dataSong)
+        setSong(dataSongDetail);
     };
     if (dataSong) {
       fetchSongData();

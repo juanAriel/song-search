@@ -1,6 +1,6 @@
 import Song from "../models/song.interface";
 
-const getSong = async ({ data }: any): Promise<Song> => {
+const getSong = ({ data }: any): Song => {
   const songSearch:  Song  = {album:'',artist: '',name: '', imageUrl: '', duration:0, songUrl:''};
   if (data) {
     try {
