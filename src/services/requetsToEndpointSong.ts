@@ -1,26 +1,24 @@
 import Song from "../models/song.interface";
 
-const getSong = async (data: any): Promise<Song[]> =>  {
-  const songSearch: Song[] = [];
-  //we create a variable and to asigned the value of the getToken fuction
-    if (data) {
-      try {
-          songSearch.push({
-            album:data.album.name,
-            imageUrl: data.album.images[1].url,
-            name:data.name,
-            artist: data.artists[0].name,
-            duration: data.duration_ms,
-            songUrl: data.external_urls.spotify
-          });
-        
-      } catch (error) {
-        console.log(error);
-      }
+const getSong = async ({ data }: any): Promise<{ [key: string]: Song }> => {
+  const songSearch: { [key: string]: Song } = {};
+  if (data) {
+    try {
+      //We use data.name as key in the object and Convert to integer duration
+      songSearch[data.name] = {
+        album: data.album.name,
+        imageUrl: data.album.images[1].url,
+        name: data.name,
+        artist: data.artists[0].name,
+        duration: parseInt(data.duration_ms),
+        songUrl: data.external_urls.spotify
+      };
+    } catch (error) {
+      console.log(error);
     }
-    else {
-      return songSearch;
-    }
+  } else {
+    return songSearch;
+  }
   return songSearch;
 };
 export { getSong };

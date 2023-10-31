@@ -1,4 +1,3 @@
-// Home.js
 import React, { useState, useEffect } from "react";
 import Search from "../components/atoms/search";
 import CardSongSearch from "../components/atoms/cardSong";
@@ -30,8 +29,8 @@ const Home = () => {
     }
   }, [searchTerm, data]);
 
-  const goUrlSongSpotify = (Id: string) => {
-    navigate(`/details/${Id}`);
+  const goUrlSongSpotify = (id: string) => {
+    navigate(`/details/${id}`);
   };
 
   return (
