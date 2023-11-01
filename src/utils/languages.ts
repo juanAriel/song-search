@@ -1,4 +1,4 @@
-export const languages=[
-    {label:'spanish',code:'es'},
-    {label:'english',code :'en'}
-]
+export const languages = [
+  { label: "Español", code: "es" },
+  { label: "English", code: "en" },
+];

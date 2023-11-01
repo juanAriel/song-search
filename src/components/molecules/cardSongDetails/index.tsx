@@ -8,9 +8,16 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import convertTime from "../../../utils/convertTime";
 import CardSongDetailsProps from "./interface";
 import { useTranslation } from "react-i18next";
+import SelectLanguage from "../selectLanguage";
+import { SelectChangeEvent } from "@mui/material/Select";
 
 const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    
+    const changeLanguage = (e: SelectChangeEvent<string>) => {
+        const selectedLanguage = e.target.value;
+        i18n.changeLanguage(selectedLanguage);
+    };
 
     if (!songDetail) {
         return null;
@@ -18,6 +25,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
 
     return (
         <div>
+            <SelectLanguage language={i18n.language} changeLanguage={changeLanguage}/>
             <Card
                 sx={{
                     display: "flex",
@@ -75,7 +83,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                                 marginBottom: "20px",
                             }}
                             onClick={() => {
-                                window.location.href = songDetail.songUrl;
+                                window.open(songDetail.songUrl);
                             }}
                         >
                             <p>{t("listen")}</p>

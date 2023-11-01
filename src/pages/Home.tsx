@@ -43,11 +43,13 @@ const Home = () => {
     }
   };
   return (
+    <>
+    <SelectLanguage language={i18n.language} changeLanguage={changeLanguage}/>
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <SelectLanguage language={i18n.language} changeLanguage={changeLanguage}/>
       <Search onSearch={handleSearch} />
       <CardSongSearch tracksData={songsData} onClickSong={goUrlSongSpotify} />
     </div>
+    </>
   );
 };
 
