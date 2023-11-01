@@ -8,15 +8,9 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import convertTime from "../../../utils/convertTime";
 import CardSongDetailsProps from "./interface";
 import { useTranslation } from "react-i18next";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 
 const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
-    const { t, i18n } = useTranslation();
-    const changeLanguage = (e: SelectChangeEvent<string>) => {
-        const selectedLanguage = e.target.value;
-        i18n.changeLanguage(selectedLanguage);
-    };
+    const { t } = useTranslation();
 
     if (!songDetail) {
         return null;
@@ -24,12 +18,6 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
 
     return (
         <div>
-            <div className="header">
-                <Select value={i18n.language} onChange={changeLanguage}>
-                    <MenuItem value="en">English</MenuItem>
-                    <MenuItem value="es">Español</MenuItem>
-                </Select>
-            </div>
             <Card
                 sx={{
                     display: "flex",

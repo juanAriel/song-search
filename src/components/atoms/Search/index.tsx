@@ -4,8 +4,6 @@ import IconButton from "@mui/material/IconButton/IconButton";
 import InputBase from "@mui/material/InputBase";
 import SearchProps from "./interface";
 import { useTranslation } from "react-i18next";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 
 const style = {
   background: "linear-gradient(45deg, #f2f2f2 30%, #f2f2f2 90%)",
@@ -14,6 +12,8 @@ const style = {
 };
 
 const Search = ({ onSearch }: SearchProps) => {
+  const { t } = useTranslation();
+
   const [searchTerm, setSearchTerm] = useState("");
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -21,22 +21,11 @@ const Search = ({ onSearch }: SearchProps) => {
     onSearch(value);
   };
 
-  const { t, i18n } = useTranslation();
-  const changeLanguage = (e: SelectChangeEvent<string>) => {
-    const selectedLanguage = e.target.value;
-    i18n.changeLanguage(selectedLanguage);
-  };
 
   return (
     <div>
       <div style={{ textAlign: "center" }}>
-        <div className="header">
-          <Select value={i18n.language} onChange={changeLanguage}>
-            <MenuItem value="en">English</MenuItem>
-            <MenuItem value="es">Español</MenuItem>
-          </Select>
-          <h2>{t("search")}</h2>
-        </div>
+        <h2>{t("search")}</h2>
         <InputBase
           style={style}
           sx={{ ml: 1, flex: 1 }}
