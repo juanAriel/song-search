@@ -4,9 +4,8 @@ import IconButton from "@mui/material/IconButton/IconButton";
 import InputBase from "@mui/material/InputBase";
 import SearchProps from "./interface";
 import { useTranslation } from "react-i18next";
-import Select from "@mui/material/Select";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import { SelectChangeEvent } from "@mui/material/Select";
 
 const style = {
   background: "linear-gradient(45deg, #f2f2f2 30%, #f2f2f2 90%)",

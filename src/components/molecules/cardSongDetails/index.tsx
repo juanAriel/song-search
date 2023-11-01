@@ -7,14 +7,29 @@ import Typography from "@mui/material/Typography";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import convertTime from "../../../utils/convertTime";
 import CardSongDetailsProps from "./interface";
+import { useTranslation } from "react-i18next";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
+    const { t, i18n } = useTranslation();
+    const changeLanguage = (e: SelectChangeEvent<string>) => {
+        const selectedLanguage = e.target.value;
+        i18n.changeLanguage(selectedLanguage);
+    };
+
     if (!songDetail) {
         return null;
     }
 
     return (
         <div>
+            <div className="header">
+                <Select value={i18n.language} onChange={changeLanguage}>
+                    <MenuItem value="en">English</MenuItem>
+                    <MenuItem value="es">Español</MenuItem>
+                </Select>
+            </div>
             <Card
                 sx={{
                     display: "flex",
@@ -37,7 +52,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                             variant="h5"
                             sx={{ fontWeight: "bold" }}
                         >
-                            ALBUM: {songDetail.album}
+                            {t("album")}: {songDetail.album}
                         </Typography>
                         <Typography
                             variant="h6"
@@ -45,7 +60,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                             component="div"
                             sx={{ fontWeight: "bold" }}
                         >
-                            Artista: {songDetail.artist}
+                            {t("artist")}: {songDetail.artist}
                         </Typography>
                         <Typography
                             variant="h6"
@@ -53,7 +68,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                             component="div"
                             sx={{ fontWeight: "bold" }}
                         >
-                            Titulo: {songDetail.name}
+                            {t("title")}: {songDetail.name}
                         </Typography>
                         <Typography
                             variant="h6"
@@ -61,7 +76,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                             component="div"
                             sx={{ fontWeight: "bold" }}
                         >
-                            Duracion: {convertTime(songDetail.duration)}
+                            {t("duration")}: {convertTime(songDetail.duration)}
                         </Typography>
                     </CardContent>
                     <Box sx={{ display: "flex", margin: "auto" }}>
@@ -75,7 +90,7 @@ const CardSongDetails = ({ songDetail }: CardSongDetailsProps) => {
                                 window.location.href = songDetail.songUrl;
                             }}
                         >
-                            <p>Escuchar</p>
+                            <p>{t("listen")}</p>
                             <PlayArrowIcon sx={{ height: 38, width: 38 }} />
                         </IconButton>
                     </Box>
