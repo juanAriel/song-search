@@ -21,7 +21,6 @@ const Search = ({ onSearch }: SearchProps) => {
     onSearch(value);
   };
 
-
   return (
     <div>
       <div style={{ textAlign: "center" }}>
@@ -33,7 +32,11 @@ const Search = ({ onSearch }: SearchProps) => {
           value={searchTerm}
           onChange={handleChange}
           startAdornment={
-            <IconButton color="default" aria-label="upload picture" component="span">
+            <IconButton
+              color="default"
+              aria-label="upload picture"
+              component="span"
+            >
               <SearchIcon />
             </IconButton>
           }

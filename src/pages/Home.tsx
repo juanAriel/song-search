@@ -8,9 +8,7 @@ import Track from "../models/track.interface";
 import { getListSong } from "../services/requetsToEndpoint";
 import { useLazySearchTracksQuery } from "../services/api";
 import SelectLanguage from "../components/molecules/selectLanguage";
-
-import Search from "../components/atoms/search";
-import CardSongSearch from "../components/atoms/cardSong";
+import { Search, CardSongSearch } from "../components/atoms";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -47,11 +45,20 @@ const Home = () => {
   };
   return (
     <>
-    <SelectLanguage language={i18n.language} changeLanguage={changeLanguage}/>
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <Search onSearch={handleSearch} />
-      <CardSongSearch tracksData={songsData} onClickSong={goUrlSongSpotify} />
-    </div>
+      <SelectLanguage
+        language={i18n.language}
+        changeLanguage={changeLanguage}
+      />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Search onSearch={handleSearch} />
+        <CardSongSearch tracksData={songsData} onClickSong={goUrlSongSpotify} />
+      </div>
     </>
   );
 };
