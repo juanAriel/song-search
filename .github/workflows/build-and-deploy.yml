@@ -31,4 +31,4 @@ jobs:
       with:
         args: deploy --only hosting --project search-song-api-spotify
       env:
-        FIREBASE_TOKEN: 1//0hLBXbhE4K7mcCgYIARAAGBESNwF-L9IrA41zTtuvp5UEGaS_10KW6IDZTckZtKtlyLemuToswPnjU3SN6lS1kDwmOZm9eKwsETI
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
