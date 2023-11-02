@@ -31,4 +31,4 @@ jobs:
       with:
         args: deploy --only hosting --project song-search
       env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        FIREBASE_TOKEN: 1//0hkIdAHMoVj8tCgYIARAAGBESNwF-L9IrTwnNlUypcGXyCA0yJk4fk90ncq9FehTR3mSDap05tt-4--H7HtlHtvctJPqyCI0l_ew
