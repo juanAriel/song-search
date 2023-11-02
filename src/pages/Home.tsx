@@ -8,7 +8,7 @@ import Track from "../models/track.interface";
 import { getListSong } from "../services/requetsToEndpoint";
 import { useLazySearchTracksQuery } from "../services/api";
 import SelectLanguage from "../components/molecules/selectLanguage";
-import { Search, CardSongSearch } from "../components/atoms";
+import { SearchInput, CardSongSearch } from "../components/atoms";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -56,7 +56,7 @@ const Home = () => {
           alignItems: "center",
         }}
       >
-        <Search onSearch={handleSearch} />
+        <SearchInput onSearch={handleSearch} />
         <CardSongSearch tracksData={songsData} onClickSong={goUrlSongSpotify} />
       </div>
     </>

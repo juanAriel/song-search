@@ -11,7 +11,7 @@ const style = {
   color: "black",
 };
 
-const Search = ({ onSearch }: SearchProps) => {
+const SearchInput = ({ onSearch }: SearchProps) => {
   const { t } = useTranslation();
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -46,4 +46,4 @@ const Search = ({ onSearch }: SearchProps) => {
   );
 };
 
-export default Search;
+export default SearchInput;

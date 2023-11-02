@@ -1,4 +1,5 @@
-import Search from "./search";
-import CardSongSearch from "./cardSongSearch";
 
-export { Search, CardSongSearch };
+import CardSongSearch from "./cardSongSearch";
+import SearchInput from "./searchInput";
+
+export { SearchInput, CardSongSearch };
