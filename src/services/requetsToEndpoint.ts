@@ -1,4 +1,4 @@
-import Track from "../models/track.inteface";
+import Track from "../models/track.interface";
 
 const getListSong = (dataSong: any): Track[] => {
 

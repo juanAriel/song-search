@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Search from "../components/atoms/search";
 import CardSongSearch from "../components/atoms/cardSong";
-import Track from "../models/track.inteface";
+import Track from "../models/track.interface";
 import { getListSong } from "../services/requetsToEndpoint";
 import { useNavigate } from "react-router-dom";
 import { useLazySearchTracksQuery } from "../services/api";
