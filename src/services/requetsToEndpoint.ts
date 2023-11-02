@@ -12,7 +12,7 @@ const getListSong = (dataSong: any): Track[] => {
           name: item.name,
           artist: item.artists[0].name,
         });
-      });
+        return dataSong;});
     } catch (error) {
       return songList;
     }
