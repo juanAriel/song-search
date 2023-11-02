@@ -26,4 +26,9 @@ jobs:
         cache: 'npm'
     - run: yarn
     - run: yarn build
-    - run: firebase deploy
+    - name: Deploy
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting --project song-search
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
