@@ -31,4 +31,4 @@ jobs:
       with:
         args: deploy --only hosting --project song-search
       env:
-        FIREBASE_TOKEN: 1//0hkIdAHMoVj8tCgYIARAAGBESNwF-L9IrTwnNlUypcGXyCA0yJk4fk90ncq9FehTR3mSDap05tt-4--H7HtlHtvctJPqyCI0l_ew
+        FIREBASE_TOKEN: 1//0hLBXbhE4K7mcCgYIARAAGBESNwF-L9IrA41zTtuvp5UEGaS_10KW6IDZTckZtKtlyLemuToswPnjU3SN6lS1kDwmOZm9eKwsETI
